@@ -23,13 +23,13 @@ C 0x872F sus 16 bytes...
 L 0x8734 otro_borra_byte
 C 0x8734 ...a cero
 C 0x8739 fuera (Y 0xEC)
-L 0x873E cerca_y                   ¿Toca en Y? A = la Y de IY menos la del protagonista (IX): C si queda entre B y C (con signo, de B a C)
+L 0x873E cerca_y                   ¿Toca en Y? A = la Y de IY menos la del protagonista (IX): C (toca) si, con signo, queda entre C - 0x100 y B - 1 (B, el margen por un lado; C, 0x100 menos el del otro)
 C 0x873E la Y del otro...
 C 0x8741 ...menos la del protagonista
 L 0x8744 cerca_mira
-C 0x8744 por debajo de B: no
-C 0x8746 por debajo de C: si
-C 0x8749 C: toca
+C 0x8744 menos que B (de 0 a B - 1): toca
+C 0x8746 C o mas (de C - 0x100 a -1)?
+C 0x8749 si: toca (C)
 L 0x8C52 puntos_cifras             Los tres bytes BCD de los puntos (0xE00C) en seis cifras (0xE001), una por byte
 C 0x8C52 las cifras
 C 0x8C55 los bytes BCD
@@ -358,7 +358,7 @@ C 0x81E0 1
 C 0x81F4 los puntos a cero
 C 0x8206 0xE058-0xE05F...
 C 0x820B ...a 0x10
-L 0x874D cerca_x                   ¿Toca en X? A = la X de IY menos la del protagonista (IX): C si queda entre B y C (como cerca_y)
+L 0x874D cerca_x                   ¿Toca en X? A = la X de IY menos la del protagonista (IX): C si queda entre C - 0x100 y B - 1, como cerca_y
 C 0x874D la X de IY...
 C 0x8750 ...menos la de IX
 C 0x8CE8 un efecto?
@@ -2019,8 +2019,8 @@ C 0x872C a la VRAM
 C 0x8731 su principio
 C 0x8732 16 bytes
 C 0x873D listo
-C 0x8745 no
-C 0x8747 C: si
+C 0x8745 C
+C 0x8747 no: a NC
 C 0x874A C
 C 0x874B NC: no
 C 0x8753 a comparar
