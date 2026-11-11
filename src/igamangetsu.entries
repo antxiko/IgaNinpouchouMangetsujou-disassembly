@@ -1,0 +1,44 @@
+# Puntos de entrada que el trazado NO puede deducir solo.
+#
+# Cada uno lleva escrito POR QUE hace falta.
+
+# El arranque: la cabecera da INIT en 0x4010.
+0x4010   # INIT
+
+# La interrupcion: el arranque pone un salto a 0x8CD2 en H.TIMI (0x8032).
+0x8CD2
+
+# Ejecutadas en openMSX (tools/omsx_cobertura.tcl: jugando y en la demo) y no alcanzadas por el
+# trazado: el primer PC de cada tramo. Cuelgan de la interrupcion o de saltos indirectos.
+0x872F
+0xA111
+0xA151
+0xA161
+0xA188
+0xA1CA
+0xA1E2
+0xA200
+0xA22E
+0xA241
+0xA333
+0xA384
+0xA3A3
+0xA3D0
+0xA425
+0xA47A
+0xA4A8
+0xA4BF
+0xA51B
+0xA747
+0xAC51
+0xAD0F
+
+# La tabla de 0xA029 (salto por A x 2, 0xA01B): 16, todas a 0xAC52.
+0xAC52
+# La tabla de 0xA0F1 (salto por A x 2, 0xA0E3): 16.
+0xA111
+0xA47A
+0xA52F
+0xA5C7
+0xA99D
+0xAC51
