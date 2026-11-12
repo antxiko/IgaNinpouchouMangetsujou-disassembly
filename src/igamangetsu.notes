@@ -63,7 +63,7 @@ C 0x8C95 sus cifras
 L 0x8D6A palanca                   La palanca: los cursores o el mando 1 (GTSTCK 0 y 1), en 0xE180
 C 0x8D6B GTSTCK 0: los cursores
 C 0x8D73 GTSTCK 1: el mando 1
-C 0x8D7A uno u otro
+C 0x8D7A uno u otro: un OR de dos numeros de direccion (1-8, no bits): con los dos a la vez sale otra
 C 0x8D7F la demostracion?
 C 0x8DD8 ...o lo del mando
 C 0x8DDA una...
@@ -264,7 +264,7 @@ C 0x8C03 acarreo
 L 0x8C05 puntos_suma_cien
 C 0x8C06 las centenas
 C 0x8C13 las decenas de millar
-C 0x8C1D se pasa: el record = los puntos
+C 0x8C1D se pasa: el record = los puntos (pero ya han dado la vuelta: puntos y record, casi a cero)
 L 0x8C2F puntos_mira
 L 0x8C9F espera_musica             Espera 8 cuadros, despues hasta que la musica acabe (0xE2BD y 0xE2BE a 0; en el titulo, el boton la corta) y despues 16 cuadros mas
 C 0x8C9F la cuenta a 0

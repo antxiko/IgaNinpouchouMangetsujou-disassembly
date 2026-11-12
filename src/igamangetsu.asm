@@ -2522,7 +2522,7 @@ puntos_suma_cien:
 	daa			;8c17
 	ld (0e00ch),a		;8c18   ; apuntadas
 	jr nc,puntos_mira		;8c1b
-	ld a,(0e00eh)		;8c1d   ; se pasa: el record = los puntos
+	ld a,(0e00eh)		;8c1d   ; se pasa: el record = los puntos (pero ya han dado la vuelta: puntos y record, casi a cero)
 	ld (0e036h),a		;8c20   ; el record: los puntos
 	ld a,(0e00dh)		;8c23
 	ld (0e035h),a		;8c26
@@ -2717,7 +2717,7 @@ palanca:		; La palanca: los cursores o el mando 1 (GTSTCK 0 y 1), en 0xE180
 	call 000d5h		;8d73   ; GTSTCK 1: el mando 1
 	ld c,a			;8d76
 	ld a,(0e181h)		;8d77
-	or c			;8d7a   ; uno u otro
+	or c			;8d7a   ; uno u otro: un OR de dos numeros de direccion (1-8, no bits): con los dos a la vez sale otra
 	ld (0e180h),a		;8d7b
 	ret			;8d7e
 interrupcion_quieto:		; Fuera de partida: en la demostracion (0xE027), cada 16 cuadros una entrada de la lista de 0xE037 (desde 0x5200): la mitad baja la palanca, la alta los botones (0x10 el 1, 0x20 el 2, otra los dos); en el titulo, el boton de empezar (0xE026) y la palanca
