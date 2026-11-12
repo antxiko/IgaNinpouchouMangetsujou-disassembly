@@ -19,6 +19,18 @@ the boss, the poke again.
 | 2-5 | inside the castle and the roof | the key from a chest opens a gap; what is inside (0x6E) opens the exit |
 | 6 | the tower | beating the boss |
 
+## The maps
+
+All seven stages, each with its screens in its list's order (0x406D), at half size: the bridge (6 screens), the
+courtyard (9), the castle's four floors (3 each) and the boss tower. They are **drawn by running the ROM**
+(`tools/mapas.py`): each screen is built by `trozo_pon` (0x9C6B) in RAM, as when the map scrolls, with the tile
+drawings and colours of a recorded frame of its stage. No scoreboard, sprites or objects.
+
+Check against the forced recording, on frames with the map aligned (0xE190 = 0x20): out of 10,958 frames, 9,255 come
+out **identical** to the built screen, and the median is 0 differing tiles on all seven stages.
+
+![The seven stages](imagenes/mapas.png)
+
 ## Stage 0: the bridge
 
 **Ten enemies** must be defeated (the number next to the enemy icon) and the castle gate reached: the ninja walks in by

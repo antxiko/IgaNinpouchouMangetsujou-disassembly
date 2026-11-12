@@ -19,6 +19,18 @@ otra vez el poke.
 | 2-5 | dentro del castillo y el tejado | la llave de un cofre abre un hueco; lo de dentro (0x6E) abre la salida |
 | 6 | la torre | vencer al jefe |
 
+## Los mapas
+
+Las siete fases enteras, cada una con sus pantallas en el orden de su lista (0x406D), a la mitad de tamaño: el
+puente (6 pantallas), el patio (9), los cuatro pisos del castillo (3 cada uno) y la torre del jefe. Están **pintadas
+ejecutando la ROM** (`tools/mapas.py`): cada pantalla la monta `trozo_pon` (0x9C6B) en la RAM, como cuando el mapa
+corre, con los dibujos y colores de las casillas de un cuadro grabado de su fase. Sin marcador, sprites ni objetos.
+
+Cotejo con la grabación forzada, en los cuadros con el mapa alineado (0xE190 = 0x20): de 10.958 cuadros, 9.255 salen
+**iguales** a la pantalla montada, y la mediana es 0 casillas distintas en las siete fases.
+
+![Las siete fases](../imagenes/mapas.png)
+
 ## La fase 0: el puente
 
 Hay que derrotar a **diez enemigos** (el número junto al dibujo del enemigo) y llegar a la puerta del castillo: el
